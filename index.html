@@ -1,71 +1,252 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Pruebas Jira</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Monitoreo Hospital San Rafael</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            background-color:#f4f7fb;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar{
+            background-color:#0d6efd;
+        }
+
+        .hero{
+            background: linear-gradient(135deg,#0d6efd,#0a58ca);
+            color:white;
+            padding:60px 20px;
+            text-align:center;
+        }
+
+        .status-card{
+            border:none;
+            border-radius:15px;
+            transition:0.3s;
+        }
+
+        .status-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .status-active{
+            border-left:8px solid #198754;
+        }
+
+        .status-warning{
+            border-left:8px solid #ffc107;
+        }
+
+        .status-error{
+            border-left:8px solid #dc3545;
+        }
+
+        .badge{
+            font-size:14px;
+        }
+
+        .section-title{
+            font-weight:bold;
+            color:#0d6efd;
+            margin-bottom:20px;
+        }
+
+        footer{
+            background:#0d6efd;
+            color:white;
+            padding:20px;
+            margin-top:40px;
+            text-align:center;
+        }
+    </style>
 </head>
 
-<body style="background-color: lightblue;">
+<body>
 
-  <nav class="navbar navbar-dark bg-dark">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                Hospital San Rafael - Monitoring
+            </a>
+        </div>
+    </nav>
 
-    <div class="container d-flex justify-content-between">
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">
+                Sistema de Monitoreo Hospitalario
+            </h1>
 
-      <span class="navbar-brand">
-        Pruebas Jira
-      </span>
+            <p class="lead mt-3">
+                Portal público para visualizar el estado en tiempo real
+                de los sistemas y servicios tecnológicos del Hospital
+                Universitario San Rafael de Tunja.
+            </p>
 
-      <div>
-        <a href="index.html" class="btn btn-light btn-sm text-dark fw-bold me-2">
-          Inicio
-        </a>
+            <div class="mt-4">
+                <span class="badge bg-success p-3">
+                    Estado Global: OPERATIVO
+                </span>
+            </div>
+        </div>
+    </section>
 
-        <a href="segunda_vista.html" class="btn btn-outline-light btn-sm">
-          Segunda Vista
-        </a>
-      </div>
+    <!-- SERVICIOS -->
+    <section class="container mt-5">
 
-    </div>
+        <h2 class="section-title">
+            Estado de Servicios
+        </h2>
 
-  </nav>
+        <div class="row g-4">
 
-  <main class="container py-5">
+            <!-- CARD 1 -->
+            <div class="col-md-4">
+                <div class="card status-card status-active shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Sistema de Citas Médicas
+                        </h5>
 
-    <h1 class="display-5">
-      Trabajamos con Netlify + GitHub (CI/CD) + Jira
-    </h1>
+                        <p class="card-text">
+                            Funcionamiento normal del sistema.
+                        </p>
 
-    <p>Primer cambio vinculado a Jira</p>
+                        <span class="badge bg-success">
+                            CONDITION_ACTIVE
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-    <p>
-      Cambio No.1 vinculado a Jira desde Git Hub y desplegado en Netlify CI/CD
-    </p>
+            <!-- CARD 2 -->
+            <div class="col-md-4">
+                <div class="card status-card status-warning shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            API de Laboratorio
+                        </h5>
 
-    <!-- NUEVA SECCIÓN -->
-    <div class="card mt-4 shadow">
+                        <p class="card-text">
+                            Lentitud intermitente detectada.
+                        </p>
 
-      <div class="card-body">
+                        <span class="badge bg-warning text-dark">
+                            CONDITION_WARNING
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-        <h3 class="card-title">
-          Integración DevOps
-        </h3>
+            <!-- CARD 3 -->
+            <div class="col-md-4">
+                <div class="card status-card status-error shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Historia Clínica Electrónica
+                        </h5>
 
-        <p class="card-text">
-          Proyecto conectado con Jira, GitHub y Netlify utilizando integración continua y despliegue automático.
+                        <p class="card-text">
+                            Servicio temporalmente fuera de línea.
+                        </p>
+
+                        <span class="badge bg-danger">
+                            CONDITION_ERROR
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HISTORIAL -->
+    <section class="container mt-5">
+
+        <h2 class="section-title">
+            Historial de Incidentes
+        </h2>
+
+        <div class="card shadow border-0">
+            <div class="card-body">
+
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">
+                        <strong>11/05/2026</strong> -
+                        Historia Clínica Electrónica restaurada correctamente.
+                    </li>
+
+                    <li class="list-group-item">
+                        <strong>10/05/2026</strong> -
+                        Caída temporal en el servidor de laboratorio.
+                    </li>
+
+                    <li class="list-group-item">
+                        <strong>09/05/2026</strong> -
+                        Actualización del sistema de facturación.
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- INDICADORES -->
+    <section class="container mt-5">
+
+        <h2 class="section-title">
+            Indicadores Globales
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card shadow border-0 text-center">
+                    <div class="card-body">
+                        <h3>21+</h3>
+                        <p>Sistemas monitoreados</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow border-0 text-center">
+                    <div class="card-body">
+                        <h3>98%</h3>
+                        <p>Disponibilidad</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow border-0 text-center">
+                    <div class="card-body">
+                        <h3>24/7</h3>
+                        <p>Monitoreo continuo</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="mb-0">
+            © 2026 Hospital Universitario San Rafael de Tunja
         </p>
-
-      </div>
-
-    </div>
-
-    <p class="lead"></p>
-
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </footer>
 
 </body>
 </html>
